@@ -20,9 +20,17 @@ if chose == 'pre-generated':
         "Cyberpunk head portrait of Sumit": 'cyberpunk',
         "Pencil sketch head portrait of Sumit": 'pencil sketch',
         "A photo of Sumit reading a book": 'reading',
-        "Sticker illustration head portrait of Sumit": 'sticker illustration',
         "A photo of Sumit surrouded by sunflowers": 'sunflower',
-        "A photo of Sumit wearing sunglasses": 'sunglasses'
+        "A photo of Sumit wearing sunglasses": 'sunglasses',
+        "Portrait of Sumit with bird wings, high detailed, concept art, genshin impact": 'bird wing',
+        "A photo of Sumit holding a bunch of flowers": 'bunch',
+        "A photo of Sumit in front of Eiffel Tower": 'Eiffer',
+        "A photo of Sumit on the beach": 'beach',
+        "Digitial art of Sumit, trending on artstation": 'digital',
+        "Impressionist art portrait of Sumit": 'impressionist',
+        "Oil painting of Sumit": 'oil painting',
+        "Drawing of Sumit with dramatic light, painted by seb mckinnon and greg rutkowski": 'dramatic',
+        "Vintage Disney art of Sumit": 'Disney'
     }
     option = st.selectbox('Choose the prompt!', sorted(set(QueryToClass)))
     dir_name = os.path.join("./assets/sumit/result/", QueryToClass[option])

@@ -30,11 +30,17 @@ if option == 'Bill gates':
             column[i].image(os.path.join(os.path.join("./assets/gates/result", filename, img)))
             
 elif option == 'Sumit Chauhan':
-    cols1= st.columns(4)
+    cols1= st.columns(5)
     cols1[0].image("./assets/sumit/train/1.jpg")
-    cols1[1].image("./assets/sumit/train/2.jpg")
+    cols1[1].image("./assets/sumit/train/2.png")
     cols1[2].image("./assets/sumit/train/3.jpg")
     cols1[3].image("./assets/sumit/train/4.jpg")
+    cols1[4].image("./assets/sumit/train/5.png")
+    cols1[0].image("./assets/sumit/train/6.png")
+    cols1[1].image("./assets/sumit/train/7.png")
+    cols1[2].image("./assets/sumit/train/8.png")
+    cols1[3].image("./assets/sumit/train/9.png")
+    cols1[4].image("./assets/sumit/train/10.png")
 
     st.header("Step 2: Waiting for model traning")
     st.header("Step 3: Create your stylized head portrait")
