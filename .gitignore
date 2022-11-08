@@ -2,6 +2,10 @@
 command.txt
 Users/*
 !Users/example
+diffusers
+infer_OneFlow.py
+out_imgs
+log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

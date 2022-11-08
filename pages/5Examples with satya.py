@@ -4,44 +4,52 @@ import time
 
 print("Hello")
 
-def sumit_trans_prompt(prompt):
-    for str in ["me", "I", "sumit", "Sumit", "sumit chauhan", "Sumit Chauhan"]:
-        prompt = prompt.replace(str, "a #4*js! woman")
+def satya_trans_prompt(prompt):
+    for str in ["me", "I", "satya", "Satya", "satya nadella", "Satya Nadella"]:
+        prompt = prompt.replace(str, "a #4*js! man")
     return prompt
         
 st.set_page_config(layout="wide")
-st.title("Some examples from Sumit Chauhan")
+st.title("Some examples from Satya Nadella")
+
+view_train = st.checkbox('View train images')       
+if view_train:
+    train_dir_name = "./assets/satya/train"
+    train_dir = sorted(os.listdir(train_dir_name))
+    cols = st.columns(5)
+    for j, name in enumerate(train_dir):
+        cols[j%5].image(os.path.join(train_dir_name, name))
+        
 st.subheader("You could either search images we have already generated or generate some by your own!")
 chose = st.radio('choose', ('pre-generated', 'online generation'), label_visibility='hidden')
 st.subheader("")
 if chose == 'pre-generated':
     QueryToClass = {
-        "Cartoon art head portrait of Sumit": 'cartoon',
-        "A photo of Sumit wearing a chef cap": 'chef cap',
-        "Concept art head portrait of Sumit": 'concept',
-        "Cyberpunk head portrait of Sumit": 'cyberpunk',
-        "Pencil sketch head portrait of Sumit": 'pencil sketch',
-        "A photo of Sumit reading a book": 'reading',
-        "A photo of Sumit surrouded by sunflowers": 'sunflower',
-        "A photo of Sumit wearing sunglasses": 'sunglasses',
-        "Portrait of Sumit with bird wings, high detailed, concept art, genshin impact": 'bird wing',
-        "A photo of Sumit holding a bunch of flowers": 'bunch',
-        "A photo of Sumit in front of Eiffel Tower": 'Eiffer',
-        "A photo of Sumit on the beach": 'beach',
-        "Digitial art of Sumit, trending on artstation": 'digital',
-        "Impressionist art portrait of Sumit": 'impressionist',
-        "Oil painting of Sumit": 'oil painting',
-        "Drawing of Sumit with dramatic light, painted by seb mckinnon and greg rutkowski": 'dramatic',
-        "Vintage Disney art of Sumit": 'Disney'
+        "Sticker illustratino head portrait of satya": "sticker illustration",
+        "A fantasy style portrait painting of a satya, smiling clean, shaven round face, rpg dnd, oil painting, unreal, rpg portrait, extremely detailed, artgerm, greg rutkowski greg": "fantasy",
+        "Pencil sketch head portrait of satya": 'pencil sketch',
+        "A photo of satya reading a book": 'reading',
+        "Drawing of satya with dramatic light, painted by seb mckinnon and greg rutkowski": 'dramatic',
+        "Cartoon art head portrait of satya": 'cartoon',
+        "Impressionist art portrait of satya": 'impressionist',
+        "A photo of satya holding a bunch of flowers": 'bunch',
+        "Cyberpunk head portrait of satya": 'cyberpunk',
+        "A photo of satya on the beach": 'beach',
+        "Low poly art head portrait of satya": 'low poly',
+        "Renaissance art head portrait of satya": 'renaissance',
+        "Photo of satya wearing a chef cap": 'chef cap',
+        "Photo of satya in front of Eiffel Tower": 'Eiffel',
+        "Photo of satya driving a car": 'car',
+        "Oil painting head portrait of satya": 'oil painting' 
     }
     option = st.selectbox('Choose the prompt!', sorted(set(QueryToClass)))
-    dir_name = os.path.join("./assets/sumit/result/", QueryToClass[option])
+    dir_name = os.path.join("./assets/satya/", QueryToClass[option])
     dir = os.listdir(dir_name)
     column = st.columns(4)
     for i,filename in enumerate(dir):    
         column[i%4].image(os.path.join(dir_name, filename))
 else:
-    username = "sumit"
+    username = "satya"
     user_root_dir = os.path.join("./Users",username)
     user_model_dir = os.path.join(user_root_dir, "model")
     user_out_dir = os.path.join(user_root_dir, "output")
@@ -55,8 +63,8 @@ else:
         st.write("Model doesn't exist. Please train your model first.")
         
     
-    user_input = st.text_input('Add some prompts! (use \'I\', \'me\', \'sumit\' to represent sumit)','A photo of me wearing sunglasses')
-    user_input = sumit_trans_prompt(user_input)
+    user_input = st.text_input('Add some prompts! (use \'I\', \'me\', \'satya\' to represent satya)','A photo of me wearing sunglasses')
+    user_input = satya_trans_prompt(user_input)
     # TODO: add sonme example prompts for users
     # st.text("Here we presented with some examples:")
 
