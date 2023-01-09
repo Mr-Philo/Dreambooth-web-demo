@@ -2,8 +2,6 @@ import streamlit as st
 import os
 import time
 
-print("Hello")
-
 def sumit_trans_prompt(prompt):
     for str in ["me", "I", "sumit", "Sumit", "sumit chauhan", "Sumit Chauhan"]:
         prompt = prompt.replace(str, "a #4*js! woman")

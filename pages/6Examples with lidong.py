@@ -2,8 +2,6 @@ import streamlit as st
 import os
 import time
 
-print("Hello")
-
 def lidong_trans_prompt(prompt):
     for str in ["me", "I", "lidong", "Lidong", "lidong zhou", "Lidong Zhou"]:
         prompt = prompt.replace(str, "a #4*js! man")

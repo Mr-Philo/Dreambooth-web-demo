@@ -46,7 +46,7 @@ option = st.selectbox(
 user_train_prompt = "a photo of #4*js! {}".format(option)      #! [V] here
 user_class_prompt = "a photo of {}".format(option)
 user_class_dir = os.path.join("./class-images", option)
-print("Slected class name: {}".format(option))
+# print("Slected class name: {}".format(option))
 
 # When the button is clicked, start training
 st.header("When all prepared, click here to train. It'll take a little time ~")
@@ -61,32 +61,34 @@ if st.button('Train', key=0):
         #     1
     else:
         os.makedirs(user_model_dir)
-    st.write("Now we are going to train")
     
-    os.system('''
-            accelerate launch train_dreambooth.py \
-            --pretrained_model_name_or_path="{}"  \
-            --train_text_encoder \
-            --instance_data_dir="{}" \
-            --class_data_dir="{}" \
-            --output_dir="{}" \
-            --with_prior_preservation --prior_loss_weight=1.0 \
-            --instance_prompt="{}" \
-            --class_prompt="{}" \
-            --resolution=512 \
-            --train_batch_size=1 \
-            --gradient_checkpointing \
-            --learning_rate=2e-6 \
-            --lr_scheduler="constant" \
-            --lr_warmup_steps=0 \
-            --num_class_images=200 \
-            --max_train_steps=1200  \
-              '''.format(
-                    "CompVis/stable-diffusion-v1-4",
-                    user_train_dir,
-                    user_class_dir, 
-                    user_model_dir, 
-                    user_train_prompt,
-                    user_class_prompt))
+    st.write("Sorry, but this feature is still under testing due to the large amount of GPU resources required for the training process.")
+    # st.write("Now we are going to train")
     
-    st.write("Finished!")
+    # os.system('''
+    #         accelerate launch train_dreambooth.py \
+    #         --pretrained_model_name_or_path="{}"  \
+    #         --train_text_encoder \
+    #         --instance_data_dir="{}" \
+    #         --class_data_dir="{}" \
+    #         --output_dir="{}" \
+    #         --with_prior_preservation --prior_loss_weight=1.0 \
+    #         --instance_prompt="{}" \
+    #         --class_prompt="{}" \
+    #         --resolution=512 \
+    #         --train_batch_size=1 \
+    #         --gradient_checkpointing \
+    #         --learning_rate=2e-6 \
+    #         --lr_scheduler="constant" \
+    #         --lr_warmup_steps=0 \
+    #         --num_class_images=200 \
+    #         --max_train_steps=1200  \
+    #           '''.format(
+    #                 "CompVis/stable-diffusion-v1-4",
+    #                 user_train_dir,
+    #                 user_class_dir, 
+    #                 user_model_dir, 
+    #                 user_train_prompt,
+    #                 user_class_prompt))
+    
+    # st.write("Finished!")
