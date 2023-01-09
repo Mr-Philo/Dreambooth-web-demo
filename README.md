@@ -40,6 +40,7 @@ requirements.txt
 ```
 ### For example, we prepare Bill Gates' training images in the example folder. We didn't provide the model due to the memory issue (about 5GB per model).
 - To train the model, please refer `train_dreambooth.py`
+- Check [train.bash](./train.bash) if you want to use this finetuning script
 - To generate images from the trained model, please refer `infer.py`
 
 <br></br>
